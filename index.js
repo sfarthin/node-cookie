@@ -71,5 +71,12 @@ var parse = function(str, opt) {
 var encode = encodeURIComponent;
 var decode = decodeURIComponent;
 
-module.exports.serialize = serialize;
-module.exports.parse = parse;
+var Cookie = {
+	serialize: serialize,
+	parse: parse
+}
+
+if (typeof module != 'undefined') 
+	module.exports = Cookie;
+else
+	window[name] = Cookie;
